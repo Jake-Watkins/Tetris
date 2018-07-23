@@ -3,6 +3,7 @@ static float blocksize;
 PFont f;
 boolean activePiece;
 void setup(){
+  System.out.println("setup");
   f = createFont("Cantarell Regular", 24);
   textFont(f);
   background(0);    
@@ -25,5 +26,7 @@ void draw(){
   game.draw();
 }
 void keyPressed(){
+  System.out.println("keyPressed");
   game.board.movePiece(key);
+  game.score++;
 }

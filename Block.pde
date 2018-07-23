@@ -5,15 +5,21 @@ class Block{
   Block downBlock;
   Block leftBlock;
   Block rightBlock;
+  boolean isPlaced;
+  int canPlace;//2 = not checked
+               //1 = can place
+               //0 = cannot place
   int R,G,B;
   Block(int R, int G, int B){
+  System.out.println("Block");
     this.R = R;
     this.B = B;
     this.G = G;
-  }
-  Block(){
-    R = 0;
-    B = 0;
-    G = 255;
+    upBlock = null;
+    downBlock = null;
+    leftBlock = null;
+    rightBlock = null;
+    canPlace = 2;
+    isPlaced = false;
   }
 }

@@ -2,25 +2,29 @@ class Piece{
   List<Block> blocks;
   List<Block> bottomBlocks;
   Block a,b,c,d; //<>//
+  char type;
   Piece(char type){
+    blocks = new ArrayList<Block>();
+    bottomBlocks = new ArrayList<Block>();
+    this.type = type;
     switch(type){
       /*
       A
       B
       CD
       */
-      case 'L': a = new Block();
+      case 'L': a = new Block(0,255,0);
                 blocks.add(a);
-                b = new Block();
+                b = new Block(0,255,0);
                 blocks.add(b);
                 a.downBlock = b;
                 b.upBlock = a;
-                c = new Block();
+                c = new Block(0,255,0);
                 blocks.add(c);
                 bottomBlocks.add(c);
                 b.downBlock = c;
                 c.upBlock = b;
-                d = new Block();
+                d = new Block(0,255,0);
                 blocks.add(d);
                 bottomBlocks.add(d);
                 c.rightBlock = d;
@@ -31,18 +35,18 @@ class Piece{
        B
       DC
       */
-      case 'J': a = new Block();
+      case 'J': a = new Block(0,255,0);
                 blocks.add(a);
-                b = new Block();
+                b = new Block(0,255,0);
                 blocks.add(b);
                 a.downBlock = b;
                 b.upBlock = a;
-                c = new Block();
+                c = new Block(0,255,0);
                 blocks.add(c);
                 bottomBlocks.add(c);
                 b.downBlock = c;
                 c.upBlock = b;
-                d = new Block();
+                d = new Block(0,255,0);
                 blocks.add(d);
                 bottomBlocks.add(d);
                 c.leftBlock = d;
@@ -54,18 +58,18 @@ class Piece{
       C
       D
       */
-      case 'I': a = new Block();
+      case 'I': a = new Block(0,255,255);
                 blocks.add(a);
-                b = new Block();
+                b = new Block(0,255,255);
                 blocks.add(b);
                 a.downBlock = b;
                 b.upBlock = a;
-                c = new Block();
+                c = new Block(0,255,255);
                 blocks.add(c);
                 bottomBlocks.add(c);
                 b.downBlock = c;
                 c.upBlock = b;
-                d = new Block();
+                d = new Block(0,255,255);
                 blocks.add(d);
                 bottomBlocks.add(d);
                 c.downBlock = d;
@@ -75,19 +79,19 @@ class Piece{
       AD
       BC
       */
-      case 'O': a = new Block();
+      case 'O': a = new Block(0,255,0);
                 blocks.add(a);
-                b = new Block();
+                b = new Block(0,255,0);
                 blocks.add(b);
                 bottomBlocks.add(b);
                 a.downBlock = b;
                 b.upBlock = a;
-                c = new Block();
+                c = new Block(0,255,0);
                 blocks.add(c);
                 bottomBlocks.add(c);
                 c.leftBlock = b;
                 b.rightBlock = c;
-                d = new Block();
+                d = new Block(0,255,0);
                 blocks.add(d);
                 bottomBlocks.add(d);
                 d.downBlock = c;
@@ -99,10 +103,10 @@ class Piece{
        BA
       DC
       */
-      case 'S': a = new Block();
-                b = new Block();
-                c = new Block();
-                d = new Block();
+      case 'S': a = new Block(0,255,0);
+                b = new Block(0,255,0);
+                c = new Block(0,255,0);
+                d = new Block(0,255,0);
                 blocks.add(a);
                 blocks.add(b);
                 blocks.add(c);
@@ -120,10 +124,10 @@ class Piece{
        A
       BCD
       */
-      case 'T': a = new Block();
-                b = new Block();
-                c = new Block();
-                d = new Block();
+      case 'T': a = new Block(0,255,0);
+                b = new Block(0,255,0);
+                c = new Block(0,255,0);
+                d = new Block(0,255,0);
                 blocks.add(a);
                 blocks.add(b);
                 blocks.add(c);
@@ -142,10 +146,10 @@ class Piece{
       AB
        CD
       */ 
-      case 'Z': a = new Block();
-                b = new Block();
-                c = new Block();
-                d = new Block();
+      case 'Z': a = new Block(0,255,0);
+                b = new Block(0,255,0);
+                c = new Block(0,255,0);
+                d = new Block(0,255,0);
                 blocks.add(a);
                 blocks.add(b);
                 blocks.add(c);
