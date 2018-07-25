@@ -42,6 +42,11 @@ class Grid {
       place(p, x, y);
     }
   }
+  boolean canSet(Piece p, int x, int y){
+     return true; 
+  }
+  void setPiece(Piece p, int x, int y){
+  }
   void place(Piece p, int x, int y) {
     System.out.printf("place(Piece p, int %d, int %d)%n", x, y);
     Block b = p.blocks.get(0);
@@ -78,17 +83,25 @@ class Grid {
     return rtn;
   }
   boolean canRotate(Piece p, int x, int y, char c) {
-    boolean rtn = true;
-    return rtn;
+    Piece copy = new Piece(p.type);
+    copy.rotatePiece(c);
+    if (canPlace(copy, x, y)) {
+      return true;
+    }
+    return false;
   }
   void rotatePiece(Piece p, int x, int y, char c) {
-  
+    removePiece(p, x, y);
+    System.out.println("i am rotating");  
+    p.rotatePiece(c);
   }
   boolean canPlace(Block b, int x, int y) {
+    System.out.printf("canPlace %d %d %n", x, y);
     if (b==null||b.canPlace==1) {
       return true;
     }
     if (x<0||x>9) {
+      System.out.println("return false");
       return false;
     }
     if (y<0||y>23) {

@@ -6,6 +6,7 @@ class Block{
   Block leftBlock;
   Block rightBlock;
   boolean isPlaced;
+  boolean isDrawn;
   int canPlace;//2 = not checked
                //1 = can place
                //0 = cannot place
@@ -21,5 +22,6 @@ class Block{
     rightBlock = null;
     canPlace = 2;
     isPlaced = false;
+    isDrawn = false;
   }
 }

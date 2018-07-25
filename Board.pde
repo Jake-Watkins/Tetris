@@ -3,12 +3,14 @@ class Board {
   Piece currentPiece;
   int xActivePiece;
   int yActivePiece;
+  Random rand;
   Board() {
     System.out.println("Board");
     grid = new Grid();
     currentPiece = null;
     xActivePiece = -1;
     yActivePiece = -1;
+    rand = new Random();
   }
   void addPiece(Piece p, int x, int y) {
     setCurrentPiece(p);
@@ -25,7 +27,7 @@ class Board {
     currentPiece = p;
   }
   void movePiece(char c) {
-    System.out.println("movePiece");
+    System.out.printf("movePiece: %s%n", key);
     grid.removePiece(currentPiece, xActivePiece, yActivePiece);
     switch(c) {
     case 'w': 
@@ -49,15 +51,21 @@ class Board {
       } 
       break;
     case 'q':
-      if (grid.canRotate(currentPiece, xActivePiece, yActivePiece, c) {
+      if (grid.canRotate(currentPiece, xActivePiece, yActivePiece, c)) {
         grid.rotatePiece(currentPiece, xActivePiece, yActivePiece, c);
       }
       break;
     case 'e':
-      if (grid.canRotate(currentPiece, xActivePiece, yActivePiece, c) {
+      if (grid.canRotate(currentPiece, xActivePiece, yActivePiece, c) ) {
         grid.rotatePiece(currentPiece, xActivePiece, yActivePiece, c);
       }
       break;
+    case ' ':
+      System.out.println("SetPiece");
+      if (grid.canSet(currentPiece, xActivePiece, yActivePiece)) {
+        grid.setPiece(currentPiece, xActivePiece, yActivePiece);
+        break;
+      }
     }
     addPiece(currentPiece, xActivePiece, yActivePiece);
   }
@@ -67,9 +75,12 @@ class Board {
         if (grid.ifPiece[x][y]==true) {
           stroke(255, 0, 0);
           fill(grid.colors[x][y].R, grid.colors[x][y].G, grid.colors[x][y].B);
+          //fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
           rect(x*blocksize, (23-y)*blocksize, blocksize, blocksize);
         } else {
           stroke(100);
+          stroke(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
+          //fill(rand.nextInt(255),rand.nextInt(255),rand.nextInt(255));
           fill(0);
           rect(x*blocksize, (23-y)*blocksize, blocksize, blocksize);
         }
