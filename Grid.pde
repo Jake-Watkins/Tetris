@@ -55,7 +55,6 @@ class Grid {
   }
   void place(Block b, int x, int y) {    
     System.out.printf("place(Block b, int %d, int %d)%n", x, y);
-
     ifPiece[x][y] = true;
     colors[x][y] = new Color(b.R, b.G, b.B);
     if (b.leftBlock!=null&&!b.leftBlock.isPlaced) {
@@ -86,6 +85,7 @@ class Grid {
     Piece copy = new Piece(p.type);
     copy.rotatePiece(c);
     if (canPlace(copy, x, y)) {
+      System.out.println("can place1???????");
       return true;
     }
     return false;

@@ -64,8 +64,14 @@ class Board {
       System.out.println("SetPiece");
       if (grid.canSet(currentPiece, xActivePiece, yActivePiece)) {
         grid.setPiece(currentPiece, xActivePiece, yActivePiece);
-        break;
+            addPiece(currentPiece, xActivePiece, yActivePiece);
+
+        game.addPiece();
       }
+      break;
+      case 'l':
+      game.listUpcoming();
+      break;
     }
     addPiece(currentPiece, xActivePiece, yActivePiece);
   }
@@ -73,7 +79,7 @@ class Board {
     for (int x = 0; x < 10; x ++) {
       for (int y = 0; y < 24; y++) {
         if (grid.ifPiece[x][y]==true) {
-          stroke(255, 0, 0);
+          stroke(255);
           fill(grid.colors[x][y].R, grid.colors[x][y].G, grid.colors[x][y].B);
           //fill(rand.nextInt(255), rand.nextInt(255), rand.nextInt(255));
           rect(x*blocksize, (23-y)*blocksize, blocksize, blocksize);
